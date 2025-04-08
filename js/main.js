@@ -1,31 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/21765ba68c.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <title>Rick and Morty</title>
-  <link rel="stylesheet" href="/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Grandstander:ital,wght@0,100..900;1,100..900&family=Questrial&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            bang: 'Bangers',
-            grands: 'Grandstander'
-          }
-        }
-      }
-    }
-  </script>
-</head>
-<body class="h-full m-0 flex flex-col bg-lime-200 ">
-  <!--<header class="h-16  bg-green-800 flex justify-center items-center ">
+
+const $$ = element => document.querySelectorAll (element);
+const $ = element => document.querySelector (element);
+
+const $inputSearch = document.querySelector ("#search");
+const $selectType = document.querySelector ("#type");
+const $selectStatus = document.querySelector ("#status");
+const $selectGender = document.querySelector ("#gender");
+const $buttonSearch = document.querySelector ("#btn-search");
+
+
+function showStyles (){
+  const $body = document.querySelector ("body");
+  $body.innerHTML = `<header class="h-16  bg-green-800 flex justify-center items-center ">
     <h1 class="sm:text-3xl md:text-4xl lg:text-5xl font-bang text-center  text-lime-300">ADA SERIES PRESENTA: RICK AND MORTY</h1>
   </header>  
 
@@ -81,7 +67,8 @@
   </main>
   <footer class="w-full h-16 flex justify-center items-center p-0 text-center  bg-green-800 text-white">
       <p class="font-grands">Hecho con &#x1F49D por Noe</p> 
-  </footer>--->
-  <script type="module" src="./js/main.js"></script>
-</body>
-</html>
+  </footer>`
+  console.log($body);
+}
+showStyles()
+

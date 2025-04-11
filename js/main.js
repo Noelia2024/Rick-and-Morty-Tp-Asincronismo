@@ -1,15 +1,26 @@
-
 const $$ = element => document.querySelectorAll (element);
 const $ = element => document.querySelector (element);
+
+let page = 1;
+let pageMax = 0;
+let data = [];
 
 const $inputSearch = document.querySelector ("#search");
 const $selectType = document.querySelector ("#type");
 const $selectStatus = document.querySelector ("#status");
 const $selectGender = document.querySelector ("#gender");
 const $buttonSearch = document.querySelector ("#btn-search");
+const $containerImages = document.querySelector ("#container-images");
+const $containerButtons = document.querySelector ("#container-buttons");
+const $btnPrev = document.querySelector ("#btn-prev");
+const $btnNext = document.querySelector ("#btn-next");
+const $h2 = document.querySelector ("#page");
 
 
-function showStyles (){
+
+
+
+function showStyles (){   //muestra el maquetado
   const $body = document.querySelector ("body");
   $body.innerHTML = `<header class="h-16  bg-green-800 flex justify-center items-center ">
     <h1 class="sm:text-3xl md:text-4xl lg:text-5xl font-bang text-center  text-lime-300">ADA SERIES PRESENTA: RICK AND MORTY</h1>
@@ -45,16 +56,16 @@ function showStyles (){
             <select name="" id="status" class="border rounded-md p-2 w-full font-grands">
               <option value="alive" class="font-grands">Vivo</option>
               <option value="dead" class="font-grands">Muerto</option>
-              <option value="unknow" class="font-grands">Desconocido</option>
+              <option value="unknown" class="font-grands">Desconocido</option>
             </select>
           </div>
 
           <div  class="sm:w-full md:w-28 lg:w-36 h-24 pl-4 mt-7 ">
             <label for="gender" class="text-lg font-grands">GENERO</label>
             <select name="" id="gender" class="border rounded-md p-2 w-full font-grands">
-              <option value="femme" class="font-grands">Femenino</option>
+              <option value="female" class="font-grands">Femenino</option>
               <option value="male" class="font-grands">Masculino</option>
-              <option value="unknow" class="font-grands">Desconocido</option>
+              <option value="unknown" class="font-grands">Desconocido</option>
             </select>
           </div>
       
@@ -63,12 +74,101 @@ function showStyles (){
           </div>
         </div>  
       </div> 
-    </div>  
+    </div>
   </main>
+  <section id="container-images" class="flex flex-wrap justify-center mt-8">
+    <!-- Aquí se mostrarán las imágenes -->
+  </section>
+  <section id="container-buttons">
+    <button id="btn-prev">
+      <i class="fa-solid fa-backward"></i>
+    </button>
+    <h2 id="page"></h2>
+    <button id="btn-next">
+      <i class="fa-solid fa-forward"></i>
+    </button>
+  </section>
   <footer class="w-full h-16 flex justify-center items-center p-0 text-center  bg-green-800 text-white">
       <p class="font-grands">Hecho con &#x1F49D por Noe</p> 
   </footer>`
   console.log($body);
 }
-showStyles()
+//showStyles()
 
+
+
+
+/*function paintData(array) {   //pintarDatos me pinta las imagenes en pantalla
+  const $containerImages = document.querySelector("#container-images");  // Seleccionar el contenedor correctamente
+  $containerImages.innerHTML = "";  // Limpiar cualquier contenido previo
+  for (const character of array) {
+    // Agregar las imágenes de los personajes
+    $containerImages.innerHTML += `<img class="character-image" src="${character.image}" style="width: 150px; margin: 10px;"><h3>${character.name}</h3>`;
+  }
+};//esta la tenia origialmente, no borrar!*/
+
+
+/*window.onload = async () => {
+  showStyles(); //  función que carga el HTML
+  paintData(characters);
+  //pageMax = data.info.pages;
+  
+};*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function paintData(array) {
+  const $containerImages = document.querySelector("#container-images");
+  $containerImages.innerHTML = "";  // Limpiar cualquier contenido previo
+
+  for (const item of array) {
+    // Pintar las imágenes y los nombres de personajes o episodios
+    if (item.image) {
+      // Si es un personaje (tiene imagen)
+      $containerImages.innerHTML += `
+        <div class="character-card" style="text-align: center; margin-bottom: 20px;">
+          <img class="character-image" src="${item.image}" style="width: 150px; margin: 10px;">
+          <h3>${item.name}</h3>
+        </div>
+      `;
+    } else {
+      // Si es un episodio (sin imagen)
+      $containerImages.innerHTML += `
+        <div class="episode-card" style="text-align: center; margin-bottom: 20px;">
+          <h3>${item.name}</h3>
+          <p>Fecha de emisión: ${item.air_date}</p>
+        </div>
+      `;
+    }
+  }
+};
+
+
+
+
+
+
+window.onload = async () => {
+  showStyles();
+  try {
+    const response = await axios("https://rickandmortyapi.com/api/character");
+    console.log(response.data); // Para verificar la respuesta
+    const characters = response.data.results; // Array de personajes
+    paintData(characters); // Llamamos a paintData con los datos obtenidos
+  } catch (error) {
+    console.error('Error al cargar los personajes', error);
+  }
+};

@@ -25,7 +25,7 @@
   </script>
 </head>
 <body class="h-full m-0 flex flex-col bg-lime-200 ">
-  <!--<header class="h-16  bg-green-800 flex justify-center items-center ">
+  <header class="h-16  bg-green-800 flex justify-center items-center ">
     <h1 class="sm:text-3xl md:text-4xl lg:text-5xl font-bang text-center  text-lime-300">ADA SERIES PRESENTA: RICK AND MORTY</h1>
   </header>  
 
@@ -59,16 +59,17 @@
             <select name="" id="status" class="border rounded-md p-2 w-full font-grands">
               <option value="alive" class="font-grands">Vivo</option>
               <option value="dead" class="font-grands">Muerto</option>
-              <option value="unknow" class="font-grands">Desconocido</option>
+              <option value="unknown" class="font-grands">Desconocido</option>
             </select>
           </div>
 
           <div  class="sm:w-full md:w-28 lg:w-36 h-24 pl-4 mt-7 ">
             <label for="gender" class="text-lg font-grands">GENERO</label>
             <select name="" id="gender" class="border rounded-md p-2 w-full font-grands">
-              <option value="femme" class="font-grands">Femenino</option>
+              <option value="female" class="font-grands">Femenino</option>
               <option value="male" class="font-grands">Masculino</option>
-              <option value="unknow" class="font-grands">Desconocido</option>
+              <option value="genderless">Sin género</option>
+              <option value="unknown" class="font-grands">Desconocido</option>
             </select>
           </div>
       
@@ -79,9 +80,21 @@
       </div> 
     </div>  
   </main>
+  <section id="container-images" class="flex flex-wrap justify-center mt-8">
+      <!-- Aquí se mostrarán las imágenes -->
+  </section>
+  <section id="container-buttons"  class="flex items-center justify-center gap-6 mt-6 sm:gap-10 md:gap-12 lg:gap-16">
+    <button id="btn-prev" class="bg-emerald-400 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300">
+      <i class="fa-solid fa-backward text-xl"></i>
+    </button>
+      <h2 id="page"  class="text-lg sm:text-md md:text-2xl font-semibold font-grands text-zinc-800"></h2>
+    <button id="btn-next" class="bg-emerald-400 hover:bg-fuchsia-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300">
+      <i class="fa-solid fa-forward text-xl"></i>
+    </button>
+  </section>
   <footer class="w-full h-16 flex justify-center items-center p-0 text-center  bg-green-800 text-white">
       <p class="font-grands">Hecho con &#x1F49D por Noe</p> 
-  </footer>--->
+  </footer>
   
   <script type="module" src="./js/main.js"></script>
 </body>

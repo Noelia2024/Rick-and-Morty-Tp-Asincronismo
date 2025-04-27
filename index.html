@@ -50,7 +50,7 @@
             <label for="type" class=" text-lg font-grands">TIPO</label>
             <select name="" id="type" class="border rounded-md p-2 w-full font-grands">
               <option value="character" class="font-grands">Personaje</option>
-              <option value="episodes" class="font-grands">Episodios</option>
+              <option value="episode" class="font-grands">Episodios</option>
             </select>
           </div>
       
@@ -92,6 +92,18 @@
       <i class="fa-solid fa-forward text-xl"></i>
     </button>
   </section>
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+    <div class="bg-white rounded-2xl shadow-2xl w-11/12 max-w-md p-8 relative animate-fadeIn">
+      <button id="btn-close-modal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-3xl font-bold">&times;</button>
+      <div class= "overflow-y-auto p-6 max-h-[80vh]">
+        <h2 id="modal-title" class="text-2xl font-bold mb-6 text-center text-emerald-600"></h2>
+        <p id="modal-episode" class="text-lg mb-3 text-center"></p>
+        <p id="modal-air-date" class="text-lg mb-3 text-center"></p>
+        <p id="modal-characters-count" class="text-lg mb-3 text-center"></p>
+      </div>
+    </div>
+  </div>
   <footer class="w-full h-16 flex justify-center items-center p-0 text-center  bg-green-800 text-white">
       <p class="font-grands">Hecho con &#x1F49D por Noe</p> 
   </footer>
